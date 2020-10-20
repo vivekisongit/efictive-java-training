@@ -1,2 +1,2 @@
 
-javac -cp .;./lib;./vkratjava FurnitureApp.java
+javac -cp .;./lib/vkrlib.data;./vkratjava/vkrbasicdata FurnitureApp.java

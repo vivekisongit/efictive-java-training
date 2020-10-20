@@ -1,5 +1,5 @@
-import data.*; 
-import vkrdata.*; 
+import vkrlib.data.*; 
+import vkratjava.vkrbasicdata.*; 
 
 class FurnitureApp{
     public static void main(String []args){

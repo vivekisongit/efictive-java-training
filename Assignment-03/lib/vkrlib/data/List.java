@@ -1,4 +1,4 @@
-package data;  
+package vkrlib.data;  
 
 public class List{
     public void add(){
