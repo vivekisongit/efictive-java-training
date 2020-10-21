@@ -21,7 +21,8 @@ public class ATM {
 		System.out.println("2.Deposite Money");
 		System.out.println("3.Withdraw Money");	
 		System.out.println("4.Show");
-		System.out.println("5.Quit");
+		System.out.println("5.Change Password");
+		System.out.println("6.Quit");
 		String input = "";
 		try {
 			reader = new BufferedReader(new InputStreamReader(System.in));
@@ -68,8 +69,12 @@ public class ATM {
 		case 4:
 			BA.show();
 			break;
-		
 		case 5:
+			System.out.println("Please enter new password");
+			BA.setPassword(reader.readLine());
+			System.out.println("Password updated successfully");
+			break;
+		case 6:
 			 quit=true;
              System.out.println("\nThank You. Quitting the Application Now...");
 			break;

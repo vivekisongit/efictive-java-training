@@ -38,6 +38,14 @@ public class BankAccount {
 	
 	
 	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	public  BankAccount(int accountNumber, String name, String password, double amount, double rate) {
 		createAccount(accountNumber, name, password,amount, rate);
 	}
