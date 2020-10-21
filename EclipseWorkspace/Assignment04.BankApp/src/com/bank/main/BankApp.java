@@ -73,8 +73,16 @@ public class BankApp {
 			
 			break;
 		case 4:
-
+			System.out.println("Please enter Account No");
+			long accountInterest = Integer.parseInt(reader.readLine());
+			
+			System.out.println("Please enter rate if interest");
+			int amountRate= Integer.parseInt(reader.readLine());
+			
+			ao.creditInterest(accountInterest, amountRate);			
+			System.out.println("Interest Created Successfully");			
 			break;
+		
 		case 5:
 			 quit=true;
              System.out.println("\nThank You. Quitting the Application Now...");

@@ -49,7 +49,16 @@ public class AccountOperations {
 		}
 		return 0;
 	}
-	public void creditInterest(long accountNo, int noOfMonths) {
-		
+	public void creditInterest(long accountNo, int rateOfInterest) {
+		if(bankMap.get(accountNo)!=null) {
+			AccountInfo accountInfo=bankMap.get(accountNo);
+			int balance=accountInfo.getBalance();			
+			
+			int newBalance=(balance*rateOfInterest)/1200;
+			accountInfo.setBalance(newBalance);
+			System.out.println("Balance in account: "+accountInfo.getBalance());
+			bankMap.put(accountNo, accountInfo);
+			System.out.println("Credit interested in your account");		
+		}
 	}
 }
