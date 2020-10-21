@@ -1,87 +1,51 @@
 package com.bank.main;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 import com.bank.module.BankAccount;
+import com.bank.utils.Input;
 
 public class ATM {
-	static BankAccount BA=null;
+	
 	 
 	public static void main(String args[]) throws NumberFormatException, IOException {
 		 boolean quit=false;
+		 Input input=new Input();	
+		 BankAccount BA=new BankAccount(12345, "Vivek", "pass", 500.00, 10.00);
+			while (!quit) {				
+				int choice = 0;
+				choice = input.readInt(
+						"1. Deposit\n2. Withdraw\n3. Show\n4. Change Password\n5. Credit interest\n6. Exit\nChoose:");
 
-        while(!quit){     
-            
-		BufferedReader reader = null;
-		System.out.println("#############Welcome to the Bank App##############");
-		System.out.println("Please enter your choice");
-		System.out.println("1.Create Account");
-		System.out.println("2.Deposite Money");
-		System.out.println("3.Withdraw Money");	
-		System.out.println("4.Show");
-		System.out.println("5.Change Password");
-		System.out.println("6.Quit");
-		String input = "";
-		try {
-			reader = new BufferedReader(new InputStreamReader(System.in));
-			input = reader.readLine();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		int expression = Integer.parseInt(input);
-		
-		switch (expression) {
-		case 1:
-			System.out.println("Please enter account number");
-			int accountNo = Integer.parseInt(reader.readLine());
-
-			System.out.println("Please enter name");
-			String name = reader.readLine();
-
-			System.out.println("Please enter password");
-			String password = reader.readLine();
-
-			System.out.println("Please enter initial deposits");
-			int balance = Integer.parseInt(reader.readLine());
-
-			System.out.println("Please enter rate of interest");
-			int rate = Integer.parseInt(reader.readLine());
-			
-			System.out.println("Account created successfully");
-			
-			BA=new BankAccount(accountNo, name, password, balance, rate);
-			break;
-		case 2:			
-			System.out.println("Please enter Amount");
-			int amountDeposit = Integer.parseInt(reader.readLine());
-			BA.deposit(amountDeposit);		
-			break;
-		case 3:
-			System.out.println("Please enter Amount");
-			int accountNoW = Integer.parseInt(reader.readLine());
-			
-			System.out.println("Please enter Password");
-			String passwordToWithdraw=reader.readLine();			
-			BA.withdraw(accountNoW, passwordToWithdraw);			
-			break;
-		case 4:
-			BA.show();
-			break;
-		case 5:
-			System.out.println("Please enter new password");
-			BA.setPassword(reader.readLine());
-			System.out.println("Password updated successfully");
-			break;
-		case 6:
-			 quit=true;
-             System.out.println("\nThank You. Quitting the Application Now...");
-			break;
-		default:
-			break;
-		}
-	}
+				switch (choice) {			
+				case 1:				
+					int amountDeposit = input.readInt("Please enter amount");
+					BA.deposit(amountDeposit);
+					break;
+				case 2:
+					int amountWithdraw = input.readInt("Please enter amount");
+					String passwordToWithdraw= input.readString("Please enter password");
+					BA.withdraw(amountWithdraw, passwordToWithdraw);
+					break;
+				case 3:
+					BA.show();
+					break;
+				case 4:
+					String newPassword= input.readString("Please enter new password");
+					BA.setPassword(newPassword);
+					System.out.println("Password updated successfully");
+					break;
+				case 5:					
+					BA.creditInterest();					
+					break;
+				case 6:
+					quit = true;
+					System.out.println("\nThank You. Quitting the Application Now...");
+					break;
+				default:
+					break;
+				}
+			}
 	}
 
 }
