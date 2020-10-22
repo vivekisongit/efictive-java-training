@@ -3,7 +3,7 @@ package com.bank.module;
 import java.util.Random;
 
 public class BankAccount {
-	
+	static int accountNum=1;
 	int accountNumber;
 	String name;
 	String password;
@@ -59,8 +59,8 @@ public class BankAccount {
 	/*No one call's this method from outside*/
 	private void createAccount(String name, String password, double amount, double rate) {
 		
-		Random rand = new Random(); 
-		this.accountNumber=rand.nextInt(1000);
+		
+		this.accountNumber=accountNum+1;
 		this.name=name;  
 		this.password=password;		
 		this.balance=amount; 
