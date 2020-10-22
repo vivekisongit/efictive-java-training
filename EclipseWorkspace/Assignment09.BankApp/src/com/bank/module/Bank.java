@@ -60,14 +60,18 @@ public class Bank {
 		}
 		return result;
 	}
-	public void creditInterest(int accNo) {
+	public boolean creditInterest(int accNo) {
 		for(int i=0; i<10; i++) {
 			BankAccount bankAccount= (BankAccount)bankAccountArr[i];
 			if(bankAccount.getAccountNumber()==accNo){
 				bankAccount.creditInterest();
+				System.out.println("Credit interested successfully"+bankAccount.balance);
+				return true;
 				
 			}
 		}
+		return false;
+		
 	}
 	public String show(int accNo) {
 		String result="Error";
