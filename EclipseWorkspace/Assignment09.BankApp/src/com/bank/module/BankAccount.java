@@ -39,8 +39,7 @@ public class BankAccount extends Bank {
 	}
 
 	/* No one call's this method from outside */
-	protected BankAccount(String name, String password, double amount, double rate) {
-		this.accountNumber = accountNum + 1;
+	protected BankAccount(String name, String password, double amount, double rate) {		
 		this.name = name;
 		this.password = password;
 		this.balance = amount;

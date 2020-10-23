@@ -16,7 +16,7 @@ public class ATM {
 				int accountNo=0;
 				int amt=0;
 				choice = input.readInt(
-						"0. Create Account\n1. Deposit\n2. Withdraw\n3. Show\n4. Change Password\n5. Credit interest\n6. Exit\nChoose:");
+						"0. Create Account\n1. Deposit\n2. Withdraw\n3. Show\n4. Change Password\n5. Credit interest\n6. Close account \n7. Exit\nChoose:");
 
 				switch (choice) {	
 				case 0:
@@ -58,7 +58,11 @@ public class ATM {
 					accountNo = input.readInt("Please enter account number");
 					bank.creditInterest(accountNo);					
 					break;
-				case 6:
+				case 6:		
+					accountNo = input.readInt("Please enter account number to close");
+					bank.closeAccount(accountNo);					
+					break;
+				case 7:
 					quit = true;
 					System.out.println("\nThank You. Quitting the Application Now...");
 					break;
