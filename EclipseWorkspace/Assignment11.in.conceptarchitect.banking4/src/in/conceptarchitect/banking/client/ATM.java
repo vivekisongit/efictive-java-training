@@ -195,10 +195,11 @@ public class ATM {
 
 	private void doOpenAccount() {
 		// TODO Auto-generated method stub
+		String type=keyboard.readString("account type [savings/current/overdraft] ? ");
 		String name=keyboard.readString("name?");
 		String pin=keyboard.readString("pin?");
 		int amount=keyboard.readInt("Initial Balance?");		
-		int accountNumber=bank.openAccount(name, pin, amount);		
+		int accountNumber=bank.openAccount(type,name, pin, amount);		
 		printSlip("Your account number is "+accountNumber);
 		
 		

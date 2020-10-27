@@ -43,9 +43,19 @@ public class Bank {
 		return account;
 	}
 	
-	public int openAccount(String name, String password, double amount) {
+	public int openAccount(String accountType,String name, String password,  double amount) {
 		
-		BankAccount account=new BankAccount(name,password,amount);
+		BankAccount account=null;
+		
+		
+		switch(accountType.toLowerCase()) {
+		
+			default: case "savings": account=new SavingsAccount(name,password,amount);break;
+			case "current": account=new CurrentAccount(name,password,amount);break;
+			case "overdraft":account=new OverDraftAccount(name,password,amount); break;
+		}
+		
+		
 		
 		//Bank should set the account Number which is accessible due to package scope
 		account.accountNumber=++accountCount;
@@ -54,7 +64,7 @@ public class Bank {
 		
 		//account number x will be stored on location x
 		//we will never use index 0 to store a account
-		accounts[account.accountNumber]=account;
+		accounts[account.accountNumber]=account;  //add all accounts to the same collection
 		
 		//return the account Number
 		return account.accountNumber;
@@ -65,6 +75,9 @@ public class Bank {
 	public boolean close(int accountNumber, String password) {
 		BankAccount account = getAccountById(accountNumber);
 		
+		if(account==null) {
+			return false;//account not exists
+		}
 		//TODO: validate password is correct
 		if(!account.authenticate(password))
 			return false; //error
@@ -126,19 +139,20 @@ public class Bank {
 		for(int i=1;i<=accountCount;i++) {
 			BankAccount a=accounts[i];
 			if(a!=null) //account may have been closed
-				System.out.printf("%d\t%f\t%s\n",a.getAccountNumber(),a.getBalance(),a.getName());
+				System.out.println(a); //use toString() method
 		}
 	}
 	
 	
-	public void creditInterests() {
-
+	public boolean creditInterests() {
+		boolean result=false;
 		System.out.println("Account\tBalance\tName");
 		for(int i=1;i<=accountCount;i++) {
-			BankAccount a=accounts[i];
-			
+			BankAccount a=accounts[i];			
 				a.creditInterest(interestRate);
+				result=true;
 		}
+		return result;
 	}
 
 	public String getAccountInfo(int accountNumber, String pin) {
@@ -149,6 +163,15 @@ public class Bank {
 		
 		
 		return null; //indicates an error
+	}
+
+	public BankAccount getAccount(int accountNumber, String password) {
+		// TODO Auto-generated method stub
+		BankAccount account=getAccountById(accountNumber);
+		if(account!=null && account.authenticate(password))
+			return account;			
+		
+		return null;
 	}
 	
 	
