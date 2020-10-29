@@ -14,7 +14,7 @@ public class Program {
 		
 		seedDummyData(icici); //add some dummy data for test
 		
-		/* runApp(icici); */
+		runApp(icici);
 		
 		
 	

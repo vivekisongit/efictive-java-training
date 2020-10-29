@@ -1,9 +1,7 @@
 package in.conceptarchitect.banking.app;
 
 import in.conceptarchitect.banking.Bank;
-import in.conceptarchitect.banking.BankAccount;
 import in.conceptarchitect.banking.client.ATM;
-import in.conceptarchitect.utils.Input;
 
 public class Program {
 
@@ -14,7 +12,7 @@ public class Program {
 		
 		seedDummyData(icici); //add some dummy data for test
 		
-		/* runApp(icici); */
+		runApp(icici);
 		
 		
 	
