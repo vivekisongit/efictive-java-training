@@ -1,7 +1,11 @@
 package in.conceptarchitect.banking;
 
 import in.conceptarchitect.banking.exceptions.InsufficientBalanceException;
+import in.conceptarchitect.banking.exceptions.InvalidAccountNumberException;
+import in.conceptarchitect.banking.repository.AccountRepository;
+import in.conceptarchitect.banking.repository.ArrayAccountRepository;
 import in.conceptarchitect.banking.repository.ArrayListAccountRepository;
+import in.conceptarchitect.banking.repository.HashmapAccountRepository;
 
 public class Bank {
 	
@@ -11,16 +15,17 @@ public class Bank {
 	
 	
 	//storage for BankAccounts
-	//ArrayAccountRepository accounts=new ArrayAccountRepository();
-	ArrayListAccountRepository accounts=new ArrayListAccountRepository();
+	AccountRepository accounts;
 	
 	
-	public Bank(String name, double interestRate) {
+	
+	public Bank(String name, double interestRate, AccountRepository accounts) {
 	
 		this.interestRate=interestRate;
 		this.name=name;
+		this.accounts=accounts;
 		
-		
+		 
 	}
 	
 	public double getInterestRate() {
