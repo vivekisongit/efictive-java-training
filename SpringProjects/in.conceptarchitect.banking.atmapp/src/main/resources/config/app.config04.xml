@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean class="in.conceptarchitect.jdbc.JdbcManager" 
+		  
+		  p:url="jdbc:mysql://localhost/bankingdb"
+		  p:userName="root"
+		  p:password="@DM1n."  />
+	
+	
+	<bean class="in.conceptarchitect.banking.reposiotory.jdbc.JdbcAccountRepository" 
+		   name="accountRepository"
+		   autowire="constructor"
+		   />
+	
+	<bean class="in.conceptarchitect.banking.core.Bank" name="bank" 
+		c:accounts-ref="accountRepository"
+		c:name="ICICI"
+		c:interestRate="12"
+		autowire="byType"
+	/>
+	
+	<bean class="in.conceptarchitect.reflection.AutoObjectCreator" 
+	   />
+	  
+	<bean class="in.conceptarchitect.banking.core.Bank" name="bank2" 
+		c:accounts-ref="accountRepository"
+		c:name="HDFC"
+		c:interestRate="12"
+		autowire="byType"
+	/>
+	
+	<bean class="in.conceptarchitect.banking.atm.ATM"  
+		  name="myAtm"  
+		  autowire="byName"
+		  />
+		
+	
+
+</beans>

@@ -30,7 +30,7 @@ public class Program {
 		ApplicationContext context=new ClassPathXmlApplicationContext("classpath:config/app.config.xml");		
 		System.out.println("Application Context is created...");
 		
-		ATM atm=  context.getBean(ATM.class);
+		ATM atm=  (ATM)context.getBean("myAtm");
 		//atm.selfCheck();
 		return atm;
 	}

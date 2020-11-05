@@ -9,22 +9,16 @@
 	>
 
 
-	<bean class="in.conceptarchitect.jdbc.JdbcManager" 		  
-		  p:url="jdbc:mysql://localhost/bankingdb"
-		  p:userName="root"
-		  p:password="@DM1n."  />
+	<bean 
+	class="in.conceptarchitect.banking.repository.HashmapAccountRepository"
+	init-method="seed" />
 	
 	
-	<!-- <bean class="in.conceptarchitect.banking.reposiotory.jdbc.JdbcAccountRepository" autowire="constructor"/>
-	 -->
-	 
-	<bean class="in.conceptarchitect.banking.repository.HashmapAccountRepository" name="accountRepository"/>
-
 	
 	 <bean class="in.conceptarchitect.banking.core.Bank" 
 		p:name="ICICI"
 		p:interestRate="12"
-		init-method="dummyDataCheck" 
+		
 		lazy-init="true"
 	/> 
 	

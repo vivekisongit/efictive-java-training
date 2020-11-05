@@ -190,10 +190,5 @@ public class Bank {
 		return account;
 	}
 	
-	public void dummyDataCheck() {
-		if(this.accounts==null)
-			throw new IllegalStateException("No Account is associated with the bank");
-		else
-			System.out.println("Accounts are ready to use");
-	}
+	
 }

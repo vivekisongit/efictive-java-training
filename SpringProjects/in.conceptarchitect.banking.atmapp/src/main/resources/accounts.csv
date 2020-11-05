@@ -1,0 +1,4 @@
+Type,AccountNumber,Name,Password,Balance,ODLimit
+in.conceptarchitect.banking.core.SavingsAccount,1,Vivek,31313131,50500.000000,0.000000
+in.conceptarchitect.banking.core.CurrentAccount,2,Sanjay,31313131,50000.000000,0.000000
+in.conceptarchitect.banking.core.OverDraftAccount,3,Chetan,31313131,50500.000000,5050.000000
