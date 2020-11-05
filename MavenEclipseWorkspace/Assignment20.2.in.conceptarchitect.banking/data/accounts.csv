@@ -1,4 +1,0 @@
-Type,AccountNumber,Name,Password,Balance,ODLimit
-savingsaccount,1,Vivek,31313131,40400.000000,0.000000
-currentaccount,2,Sanjay,32323232,20000.000000,0.000000
-overdraftaccount,3,Shivanshi,33333333,101000.000000,10100.000000

@@ -1,0 +1,3 @@
+DB_URL=jdbc:mysql://localhost/bankingdb
+DB_USER=enter-your-user-name-typically-root
+DB_PASSWORD=enter-password-and-rename-file-by-removing-sample
